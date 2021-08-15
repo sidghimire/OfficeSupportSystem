@@ -5,12 +5,18 @@ int main() {
 }
 
 void howToInputNewLine(){
-char inputString[128];
+    char inputString[128];
 
-   printf("Enter a multi line string\n");
-   scanf("%[^;]s  ", inputString);
+    printf("Enter a multi line string\n");
+    scanf("%[^;]s  ", inputString);
 
-   printf("\n%s", inputString);
+    printf("\n%s", inputString);
 
-   return 0;
+    return 0;
 }
+//Alignment
+//Spacing
+//UpperCase Lower Case
+//Bullets -- *
+// Custom function use garne ani while(true){ use # to type, similarly more)
+
