@@ -8,7 +8,7 @@ void openWord(){
     printf("2. Edit opening document: \n");
     printf("3. Delete a document: \n");
     printf("4. Open a document: \n");
-    printf("6. Exit\n");
+    printf("5. Exit\n");
     printf("Enter your choice: ");
     scanf("%d",&choice);
 
