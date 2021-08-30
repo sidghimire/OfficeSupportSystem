@@ -33,7 +33,45 @@ void openAWordDocument(){
     getch();
     system("cls");
     openWord();
+}
 
+void editAWordDocument(){
+    system("cls");
+    printf("The list of documents are: \n");
+    showListOfWord();
+    printf("Which File Do You Want To Open: ");
+    int choice;
+    scanf("%d",&choice);
+    system("cls");
+    choice--;
+    system("cls");
+    char submit;
+    printf("####### Edit Document ######\n");
+    printf("\nOriginal Name:%s\n",wordList[choice].file_name);
+    printf("Edit Your Document Name: ");
+
+    getchar();
+    fgets(wordList[choice].file_name,50,stdin);
+    printf("\nEdit The Content Of Your Document:\n");
+    fgets(wordList[choice].file_content,2000,stdin);
+    printf("Enter Y/y to Submit: ");
+    scanf("%s",&submit);
+    if(submit=='Y' || submit=='y'){
+        system("cls");
+        printf("Word File Was SuccessFully Saved\n");
+        printf("Press Any Key to Continue");
+        getch();
+        system("cls");
+        openWord();
+    }else{
+        system("cls");
+        printf("Word File Was Not Saved\n");
+        printf("Press Any Key to Continue");
+        getch();
+        system("cls");
+        openWord();
+
+    }
 }
 
 void showListOfWord(){
@@ -48,7 +86,7 @@ void openWord(){
     printf("####### Word Program ######\n");
     int choice;
     printf("1. Create a new document: \n");
-    printf("2. Edit opening document: \n");
+    printf("2. Edit document: \n");
     printf("3. Delete a document: \n");
     printf("4. Open a document: \n");
     printf("5. Exit\n");
@@ -57,6 +95,9 @@ void openWord(){
     switch(choice){
     case 1:
         createNewWord();
+        break;
+    case 2:
+        editAWordDocument();
         break;
     case 4:
         openAWordDocument();
