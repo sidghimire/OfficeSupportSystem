@@ -38,7 +38,7 @@ void openAWordDocument(){
 
 void showListOfWord(){
     for(int i=0;i<counterForWord;i++){
-        printf("%d. %s\n",i+1,wordList[i].file_content);
+        printf("%d. %s\n",i+1,wordList[i].file_name);
     }
 
 }
@@ -74,8 +74,7 @@ void createNewWord(){
     getchar();
     fgets(wordList[counterForWord].file_name,50,stdin);
     printf("\nEnter The Content Of Your Document: \n");
-    getchar();
-    fgets(wordList[counterForWord].file_content,50,stdin);
+    fgets(wordList[counterForWord].file_content,2000,stdin);
     printf("Enter Y/y to Submit: ");
     scanf("%s",&submit);
     if(submit=='Y' || submit=='y'){
