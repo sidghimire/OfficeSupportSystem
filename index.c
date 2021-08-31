@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include <stdlib.h>
+#include<string.h>
 struct wordFileList{
     int id;
     char file_name[50];
@@ -17,6 +18,41 @@ int getStructArrayLength(struct wordFileList list[20]){
 //Universally Used Functions END
 
 //Just For Word START
+
+void deleteAWordDocument(){
+    system("cls");
+    printf("The list of documents are: \n");
+    showListOfWord();
+    printf("Which File Do You Want To Delete: ");
+    int choice;
+    scanf("%d",&choice);
+    system("cls");
+    choice--;
+    int length=0,count=0;
+    char test[50],test2[2000];
+    while(count<50){
+            if(strlen(wordList[count].file_name)!=0){
+                length++;
+            }
+        count++;
+    }
+    for(int i=choice;i<length;i++){
+        if(i!=length){
+            wordList[i].id=wordList[i+1].id;
+            strcpy(wordList[i].file_name,wordList[i+1].file_name);
+            strcpy(wordList[i].file_content,wordList[i+1].file_content);
+        }else{
+            wordList[i].id=0;
+            strcpy(wordList[i].file_name,test);
+            strcpy(wordList[i].file_content,test2);
+        }
+
+    }
+    counterForWord--;
+    openWord();
+
+    }
+
 
 void openAWordDocument(){
     system("cls");
@@ -44,7 +80,6 @@ void editAWordDocument(){
     scanf("%d",&choice);
     system("cls");
     choice--;
-    system("cls");
     char submit;
     printf("####### Edit Document ######\n");
     printf("\nOriginal Name:%s\n",wordList[choice].file_name);
@@ -98,6 +133,9 @@ void openWord(){
         break;
     case 2:
         editAWordDocument();
+        break;
+    case 3:
+        deleteAWordDocument();
         break;
     case 4:
         openAWordDocument();
