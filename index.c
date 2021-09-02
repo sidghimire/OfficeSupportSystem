@@ -5,10 +5,16 @@ struct wordFileList{
     int id;
     char file_name[50];
     char file_content[2000];
-    char date[20];
 }wordList[50];
-int counterForWord=0;
 
+struct excelFileList{
+    int id;
+    char file_name[50];
+    char keyList[30][100];
+    int valueList[30];
+}excelList[50];
+int counterForWord=0;
+int counterForExcel=0;
 //Universally Used Functions START
 int getStructArrayLength(struct wordFileList list[20]){
     for(int i=0;i<50;i++){
@@ -116,6 +122,9 @@ void showListOfWord(){
 
 }
 
+
+
+
 void openWord(){
     system("cls");
     printf("####### Word Program ######\n");
@@ -141,7 +150,6 @@ void openWord(){
         openAWordDocument();
         break;
     }
-
 }
 
 void createNewWord(){
@@ -171,16 +179,206 @@ void createNewWord(){
         getch();
         system("cls");
         openWord();
+    }
+}
+//Just For Word END
 
+
+//Just For Excel START
+void showListOfExcel(){
+    for(int i=0;i<counterForExcel;i++){
+        printf("%d. %s\n",i+1,excelList[i].file_name);
+    }
+
+}
+void createNewRecord(){
+    system("cls");
+    char submit;
+    int keys=0;
+    printf("####### Create A New Excel Program ######\n");
+    excelList[counterForExcel].id=counterForExcel;
+    printf("Enter Your Excel Document Name: ");
+    getchar();
+    fgets(excelList[counterForExcel].file_name,50,stdin);
+    printf("\nHow many keys do you want to enter:");
+    scanf("%d",&keys);
+    for(int i=0;i<keys;i++){
+        printf("Enter the Key At Position %d: ",i+1);
+        scanf("%s",&excelList[counterForExcel].keyList[i]);
+
+    }
+    printf("\n");
+    for(int j=0;j<keys;j++)
+    {
+        printf("Enter Value of %s:",excelList[counterForExcel].keyList[j]);
+        scanf("%d",&excelList[counterForExcel].valueList[j]);
+    }
+    printf("Enter Y/y to Submit: ");
+    scanf("%s",&submit);
+    if(submit=='Y' || submit=='y'){
+        system("cls");
+        printf("Word File Was SuccessFully Saved\n");
+        printf("Press Any Key to Continue");
+        getch();
+        system("cls");
+        counterForExcel++;
+        openExcel();
+    }else{
+        system("cls");
+        printf("Word File Was Not Saved\n");
+        printf("Press Any Key to Continue");
+        getch();
+        system("cls");
+        openExcel();
+    }
+}
+
+void openRecord(){
+    system("cls");
+    printf("The list of record are: \n");
+    showListOfExcel();
+    printf("Which Record Do You Want To Open: ");
+    int choice;
+    scanf("%d",&choice);
+    system("cls");
+    choice--;
+    int length=0;
+    int count=0,x=0;
+
+    while(count<30){
+
+            if(strlen(excelList[choice].keyList[x])!=0){
+                length++;
+            }
+            count++;
+            x++;
+    }
+    printf("Document Name: %s \n",excelList[choice].file_name);
+   for(int i=0;i<length;i++){
+        printf("%s : %d",excelList[choice].keyList[i],excelList[choice].valueList[i]);
+        printf("\n\n");
+    }
+    printf("Press Any Key To Go Back");
+    getch();
+    system("cls");
+    openExcel();
+}
+void deleteRecord(){
+
+    system("cls");
+    printf("The list of record are: \n");
+    showListOfExcel();
+    printf("Which Record Do You Want To Open: ");
+    int choice;
+    scanf("%d",&choice);
+    system("cls");
+    choice--;
+    int length=0,count=0;
+    char test[50],test2[30];
+    while(count<50){
+            if(strlen(excelList[count].file_name)!=0){
+                length++;
+            }
+        count++;
+    }
+
+    for(int i=choice;i<length;i++){
+        if(i!=length){
+            excelList[i].id=excelList[i+1].id;
+            strcpy(excelList[i].file_name,excelList[i+1].file_name);
+            memcpy(excelList[i].keyList, excelList[i+1].keyList, sizeof excelList[i].keyList);
+            memcpy(excelList[i].valueList, excelList[i+1].valueList, sizeof excelList[i].valueList);
+
+        }else{
+            excelList[i].id=0;
+            strcpy(wordList[i].file_name,test);
+            memcpy(excelList[i].keyList, test2, sizeof excelList[i].keyList);
+            memcpy(excelList[i].valueList, test2, sizeof excelList[i].valueList);
+        }
+
+    }
+    counterForExcel--;
+    openExcel();
+}
+
+void editRecord(){
+    char submit;
+
+    system("cls");
+    printf("The list of record are: \n");
+    showListOfExcel();
+    printf("Which Record Do You Want To Open: ");
+    int choice,x=0;
+    scanf("%d",&choice);
+    system("cls");
+    choice--;
+    printf("####### Edit Excel File ########\n");
+    printf("File Name: %s",excelList[choice].file_name);
+    int length=0,count=0;
+    while(count<30){
+
+            if(strlen(excelList[choice].keyList[x])!=0){
+                length++;
+            }
+            count++;
+            x++;
+    }
+    printf("\n");
+    for(int j=0;j<length;j++)
+    {
+        printf("Enter Value of %s:",excelList[choice].keyList[j]);
+        scanf("%d",&excelList[choice].valueList[j]);
+    }
+    printf("Enter Y/y to Submit: ");
+    scanf("%s",&submit);
+    if(submit=='Y' || submit=='y'){
+        system("cls");
+        printf("Word File Was SuccessFully Saved\n");
+        printf("Press Any Key to Continue");
+        getch();
+        system("cls");
+        openExcel();
+    }else{
+        system("cls");
+        printf("Word File Was Not Saved\n");
+        printf("Press Any Key to Continue");
+        getch();
+        system("cls");
+        openExcel();
+    }
+}
+//Just For Excel STOP
+
+void openExcel(){
+    system("cls");
+    printf("####### Excel Program ######\n");
+    int choice;
+    printf("1. Create a new Record: \n");
+    printf("2. Edit record: \n");
+    printf("3. Delete a record: \n");
+    printf("4. Open a record: \n");
+    printf("5. Exit\n");
+    printf("Enter your choice: ");
+    scanf("%d",&choice);
+    switch(choice){
+    case 1:
+        createNewRecord();
+        break;
+    case 2:
+        editRecord();
+        break;
+    case 3:
+        deleteRecord();
+        break;
+    case 4:
+        openRecord();
+        break;
     }
 
 }
 
-//Just For Word END
 
-void openExcel(){
-    return 0;
-}
+
 
 void openDatabase(){
     return 0;
@@ -212,9 +410,7 @@ int main() {
         default:
             system("cls");
             printf("########Select Another Option########\n");
-
         }
-
     }
 }
 
