@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include<string.h>
 #include<windows.h>
+
+//List of Structure ####Start####
 struct wordFileList{
     int id;
     char file_name[50];
@@ -14,8 +16,15 @@ struct excelFileList{
     char keyList[30][100];
     int valueList[30];
 }excelList[50];
+//List of Structure ####Stop####
+
+
+// Counters For Number Of File
 int counterForWord=0;
 int counterForExcel=0;
+// Counters For Number Of File
+
+
 //Universally Used Functions START
 int getStructArrayLength(struct wordFileList list[20]){
     for(int i=0;i<50;i++){
@@ -25,6 +34,14 @@ int getStructArrayLength(struct wordFileList list[20]){
 //Universally Used Functions END
 
 //Just For Word START
+
+void showListOfWord(){
+    for(int i=0;i<counterForWord;i++){
+        printf("%d. %s\n",i+1,wordList[i].file_name);
+    }
+
+}
+
 
 void deleteAWordDocument(){
     system("cls");
@@ -61,22 +78,6 @@ void deleteAWordDocument(){
     }
 
 
-void openAWordDocument(){
-    system("cls");
-    printf("\n\t\t\t\t\t\The list of documents are: \n");
-    showListOfWord();
-    printf("\n\t\t\t\t\t\Which File Do You Want To Open: ");
-    int choice;
-    scanf("%d",&choice);
-    system("cls");
-    choice--;
-    printf("\n\t\tDocument Name: %s \n",wordList[choice].file_name);
-    printf("%s\n\n",wordList[choice].file_content);
-    printf("\n\t\t\t\t\t\Press Any Key To Go Back");
-    getch();
-    system("cls");
-    openWord();
-}
 
 void editAWordDocument(){
     system("cls");
@@ -116,13 +117,53 @@ void editAWordDocument(){
     }
 }
 
-void showListOfWord(){
-    for(int i=0;i<counterForWord;i++){
-        printf("%d. %s\n",i+1,wordList[i].file_name);
-    }
 
+void openAWordDocument(){
+    system("cls");
+    printf("\n\t\t\t\t\t\The list of documents are: \n");
+    showListOfWord();
+    printf("\n\t\t\t\t\t\Which File Do You Want To Open: ");
+    int choice;
+    scanf("%d",&choice);
+    system("cls");
+    choice--;
+    printf("\n\t\tDocument Name: %s \n",wordList[choice].file_name);
+    printf("%s\n\n",wordList[choice].file_content);
+    printf("\n\t\t\t\t\t\Press Any Key To Go Back");
+    getch();
+    system("cls");
+    openWord();
 }
 
+void createNewWord(){
+    system("cls");
+    char submit;
+    printf("\t\t\t\t\t\tCreate A New Word Program \n");
+    wordList[counterForWord].id=counterForWord;
+    printf("\n\t\t Enter Your Document Name: ");
+    getchar();
+    fgets(wordList[counterForWord].file_name,50,stdin);
+    printf("\n\t\t Enter The Content Of Your Document: ");
+    fgets(wordList[counterForWord].file_content,2000,stdin);
+    printf("\n\t\tEnter Y/y to Submit: ");
+    scanf("%s",&submit);
+    if(submit=='Y' || submit=='y'){
+        system("cls");
+        printf("\n\t\t\t\t\t\tWord File Was SuccessFully Saved\n");
+        printf("\n\t\t\t\t\t\tPress Any Key to Continue");
+        getch();
+        system("cls");
+        counterForWord++;
+        openWord();
+    }else{
+        system("cls");
+        printf("\n\t\t\t\t\t\t Word File Was Not Saved");
+        printf("\n\t\t\t\t\t\t Press Any Key to Continue");
+        getch();
+        system("cls");
+        openWord();
+    }
+}
 
 
 
@@ -155,35 +196,6 @@ void openWord(){
     }
 }
 
-void createNewWord(){
-    system("cls");
-    char submit;
-    printf("\t\t\t\t\t\tCreate A New Word Program \n");
-    wordList[counterForWord].id=counterForWord;
-    printf("\n\t\t Enter Your Document Name: ");
-    getchar();
-    fgets(wordList[counterForWord].file_name,50,stdin);
-    printf("\n\t\t Enter The Content Of Your Document: ");
-    fgets(wordList[counterForWord].file_content,2000,stdin);
-    printf("\n\t\tEnter Y/y to Submit: ");
-    scanf("%s",&submit);
-    if(submit=='Y' || submit=='y'){
-        system("cls");
-        printf("\n\t\t\t\t\t\tWord File Was SuccessFully Saved\n");
-        printf("\n\t\t\t\t\t\tPress Any Key to Continue");
-        getch();
-        system("cls");
-        counterForWord++;
-        openWord();
-    }else{
-        system("cls");
-        printf("\n\t\t\t\t\t\t Word File Was Not Saved");
-        printf("\n\t\t\t\t\t\t Press Any Key to Continue");
-        getch();
-        system("cls");
-        openWord();
-    }
-}
 //Just For Word END
 
 
@@ -327,6 +339,7 @@ void editRecord(){
             x++;
     }
     printf("\n");
+
     for(int j=0;j<length;j++)
     {
         printf("Enter Value of %s:",excelList[choice].keyList[j]);
@@ -382,12 +395,11 @@ void openExcel(){
 
 }
 
-
-
-
 void openDatabase(){
-    return 0;
+
 }
+
+// Main Of Program ##Start##
 int main() {
     while(1){
         int choice;
@@ -400,24 +412,26 @@ int main() {
         printf("Enter your choice: ");
         scanf("%d",&choice);
         switch(choice){
-        case 1:
-            openWord();
-            break;
-        case 2:
-            openExcel();
-            break;
-        case 3:
-            openDatabase();
-            break;
-        case 4:
-            exit(1);
-            break;
-        default:
-            system("cls");
-            printf("########Select Another Option########\n");
+            case 1:
+                openWord();
+                break;
+            case 2:
+                openExcel();
+                break;
+            case 3:
+                openDatabase();
+                break;
+            case 4:
+                exit(1);
+                break;
+            default:
+                system("cls");
+                printf("########Select Another Option########\n");
         }
     }
 }
+// Main Of Program ##End##
+
 
 //Alignment
 //Spacing
