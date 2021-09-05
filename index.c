@@ -45,9 +45,9 @@ void showListOfWord(){
 
 void deleteAWordDocument(){
     system("cls");
-    printf("\n\t\t\t\t\t\The list of documents are: \n");
+    printf("\n\t\t The list of documents are: \n\t\t");
     showListOfWord();
-    printf("\n\t\t\t\t\t\Which File Do You Want To Delete: ");
+    printf("\n\t\t Which File Do You Want To Delete: ");
     int choice;
     scanf("%d",&choice);
     system("cls");
@@ -81,23 +81,23 @@ void deleteAWordDocument(){
 
 void editAWordDocument(){
     system("cls");
-    printf("The list of documents are: \n");
+    printf("\n\t\t The list of documents are: \n\t\t");
     showListOfWord();
-    printf("Which File Do You Want To Open: ");
+    printf("\n\t\t Which File Do You Want To Open: ");
     int choice;
     scanf("%d",&choice);
     system("cls");
     choice--;
     char submit;
-    printf("####### Edit Document ######\n");
-    printf("\nOriginal Name:%s\n",wordList[choice].file_name);
-    printf("Edit Your Document Name: ");
+    printf("\t\t\t\t\tEdit Document\n");
+    printf("\n\t\t Original Name:%s\n",wordList[choice].file_name);
+    printf("\n\t\t Edit Your Document Name: ");
 
     getchar();
     fgets(wordList[choice].file_name,50,stdin);
-    printf("\n\t\tEdit The Content Of Your Document:\n");
+    printf("\n\t\t Edit The Content Of Your Document:");
     fgets(wordList[choice].file_content,2000,stdin);
-    printf("\n\t\tEnter Y/y to Submit: ");
+    printf("\n\t\t Enter Y/y to Submit: ");
     scanf("%s",&submit);
     if(submit=='Y' || submit=='y'){
         system("cls");
@@ -120,14 +120,14 @@ void editAWordDocument(){
 
 void openAWordDocument(){
     system("cls");
-    printf("\n\t\t\t\t\t\The list of documents are: \n");
+    printf("\n\t\t The list of documents are: \n\t\t");
     showListOfWord();
-    printf("\n\t\t\t\t\t\Which File Do You Want To Open: ");
+    printf("\n\t\tWhich File Do You Want To Open: ");
     int choice;
     scanf("%d",&choice);
     system("cls");
     choice--;
-    printf("\n\t\tDocument Name: %s \n",wordList[choice].file_name);
+    printf("\n\t\tDocument Name: %s \n\t\t",wordList[choice].file_name);
     printf("%s\n\n",wordList[choice].file_content);
     printf("\n\t\t\t\t\t\Press Any Key To Go Back");
     getch();
@@ -145,20 +145,20 @@ void createNewWord(){
     fgets(wordList[counterForWord].file_name,50,stdin);
     printf("\n\t\t Enter The Content Of Your Document: ");
     fgets(wordList[counterForWord].file_content,2000,stdin);
-    printf("\n\t\tEnter Y/y to Submit: ");
+    printf("\n\t\t Enter Y/y to Submit: ");
     scanf("%s",&submit);
     if(submit=='Y' || submit=='y'){
         system("cls");
-        printf("\n\t\t\t\t\t\tWord File Was SuccessFully Saved\n");
-        printf("\n\t\t\t\t\t\tPress Any Key to Continue");
+        printf("\n\t\t\t\t\t Word File Was SuccessFully Saved\n");
+        printf("\n\t\t\t\t\t Press Any Key to Continue");
         getch();
         system("cls");
         counterForWord++;
         openWord();
     }else{
         system("cls");
-        printf("\n\t\t\t\t\t\t Word File Was Not Saved");
-        printf("\n\t\t\t\t\t\t Press Any Key to Continue");
+        printf("\n\t\t\t\t\t Word File Was Not Saved");
+        printf("\n\t\t\t\t\t Press Any Key to Continue");
         getch();
         system("cls");
         openWord();
@@ -170,15 +170,15 @@ void createNewWord(){
 void openWord(){
     system("cls");
     system("color 0B");
-    printf("\n\n\t\t\t\t\t\t\tWord Program\n");
-    printf("\n\t\t\t\t\t_____________________________________________");
+    printf("\n\n\t\t\t\t\t\tWord Program\n");
+    printf("\n\t\t\t\t_____________________________________________\n");
     int choice;
-    printf("\n\n\t\t 1. Create a new document: ");
-    printf("\t\t\t\t\t\t 2. Edit document: \n");
-    printf("\t\t 3. Delete a document: ");
-    printf("\t\t\t\t\t\t\t 4. Open a document: \n");
+    printf("\n\n\t\t 1. Create a new document ");
+    printf("\t\t\t\t 2. Edit document \n");
+    printf("\t\t 3. Delete a document ");
+    printf("\t\t\t\t\t 4. Open a document \n");
     printf("\t\t 5. Exit\n");
-    printf("\n\t Enter your choice: ");
+    printf("\n\t\t Enter your choice: ");
     scanf("%d",&choice);
     switch(choice){
     case 1:
@@ -193,6 +193,7 @@ void openWord(){
     case 4:
         openAWordDocument();
         break;
+
     }
 }
 
@@ -210,25 +211,25 @@ void createNewRecord(){
     system("cls");
     char submit;
     int keys=0;
-    printf("\n\t\t\t\t\t\Create A New Excel Program");
+    printf("\n\t\t\t\t\ Create A New Excel Program \n");
     excelList[counterForExcel].id=counterForExcel;
-    printf("\n\t\t\t\t\t\Enter Your Excel Document Name: ");
+    printf("\n\t\t Enter Your Excel Document Name: ");
     getchar();
     fgets(excelList[counterForExcel].file_name,50,stdin);
-    printf("\n\t\t\t\t\t\How many keys do you want to enter:");
+    printf("\n\t\t How many keys do you want to enter:");
     scanf("%d",&keys);
     for(int i=0;i<keys;i++){
-        printf("\n\t\t\t\t\t\Enter the Key At Position %d: ",i+1);
+        printf("\n\t\t Enter the Key At Position %d: ",i+1);
         scanf("%s",&excelList[counterForExcel].keyList[i]);
 
     }
     printf("\n");
     for(int j=0;j<keys;j++)
     {
-        printf("\n\t\t\t\t\t\Enter Value of %s:",excelList[counterForExcel].keyList[j]);
+        printf("\n\t\t Enter Value of %s:",excelList[counterForExcel].keyList[j]);
         scanf("%d",&excelList[counterForExcel].valueList[j]);
     }
-    printf("\n\t\t\t\t\t\Enter Y/y to Submit: ");
+    printf("\n\t\t Enter Y/y to Submit: ");
     scanf("%s",&submit);
     if(submit=='Y' || submit=='y'){
         system("cls");
@@ -250,9 +251,9 @@ void createNewRecord(){
 
 void openRecord(){
     system("cls");
-    printf("The list of record are: \n");
+    printf("\n\t\t The list of records are: \n\t\t");
     showListOfExcel();
-    printf("Which Record Do You Want To Open: ");
+    printf("\n\t\t Which Record Do You Want To Open: ");
     int choice;
     scanf("%d",&choice);
     system("cls");
@@ -268,12 +269,12 @@ void openRecord(){
             count++;
             x++;
     }
-    printf("Document Name: %s \n",excelList[choice].file_name);
+    printf("\n\t\t Document Name: %s \n",excelList[choice].file_name);
    for(int i=0;i<length;i++){
-        printf("%s : %d",excelList[choice].keyList[i],excelList[choice].valueList[i]);
+        printf("\n\t\t %s : %d",excelList[choice].keyList[i],excelList[choice].valueList[i]);
         printf("\n\n");
     }
-    printf("Press Any Key To Go Back");
+    printf("\n\t\t\t\t\tPress Any Key To Go Back");
     getch();
     system("cls");
     openExcel();
@@ -281,9 +282,9 @@ void openRecord(){
 void deleteRecord(){
 
     system("cls");
-    printf("The list of record are: \n");
+    printf("\n\t\t The list of records: \n\t\t");
     showListOfExcel();
-    printf("Which Record Do You Want To Open: ");
+    printf("\t\tWhich Record Do You Want To Open: ");
     int choice;
     scanf("%d",&choice);
     system("cls");
@@ -320,15 +321,15 @@ void editRecord(){
     char submit;
 
     system("cls");
-    printf("The list of record are: \n");
+    printf("\n\t\t The list of records are: \n\t\t");
     showListOfExcel();
-    printf("Which Record Do You Want To Open: ");
+    printf("\t\tWhich Record Do You Want To Open: ");
     int choice,x=0;
     scanf("%d",&choice);
     system("cls");
     choice--;
-    printf("####### Edit Excel File ########\n");
-    printf("File Name: %s",excelList[choice].file_name);
+    printf("\n\t\t\t\t\tEdit Excel File\n");
+    printf("\n\t\t File Name: %s",excelList[choice].file_name);
     int length=0,count=0;
     while(count<30){
 
@@ -342,22 +343,22 @@ void editRecord(){
 
     for(int j=0;j<length;j++)
     {
-        printf("Enter Value of %s:",excelList[choice].keyList[j]);
+        printf("\n\t\t Enter Value of %s:",excelList[choice].keyList[j]);
         scanf("%d",&excelList[choice].valueList[j]);
     }
-    printf("Enter Y/y to Submit: ");
+    printf("\n\t\t Enter Y/y to Submit: ");
     scanf("%s",&submit);
     if(submit=='Y' || submit=='y'){
         system("cls");
-        printf("Word File Was SuccessFully Saved\n");
-        printf("Press Any Key to Continue");
+        printf("\t\t\t\t\tWord File Was SuccessFully Saved\n");
+        printf("\t\t\t\t\tPress Any Key to Continue");
         getch();
         system("cls");
         openExcel();
     }else{
         system("cls");
-        printf("Word File Was Not Saved\n");
-        printf("Press Any Key to Continue");
+        printf("\t\t\t\t\tWord File Was Not Saved\n");
+        printf("\t\t\t\t\tPress Any Key to Continue");
         getch();
         system("cls");
         openExcel();
@@ -367,14 +368,14 @@ void editRecord(){
 
 void openExcel(){
     system("cls");
-    system("color 0A");
-    printf("\n\n\t\t\t\t\t\t\tExcel Program \n");
-    printf("\n\t\t\t\t\t_____________________________________________");
+    system("color 0B");
+    printf("\n\n\t\t\t\t\t\tExcel Program \n");
+    printf("\t\t\t\t_____________________________________________");
     int choice;
-    printf("\n\n\t\t 1. Create a new Record: ");
-    printf("\t\t\t\t\t\t 2. Edit record: ");
-    printf("\n\t\t\ 3. Delete a record: ");
-    printf("\t\t\t\t\t\t\t 4. Open a record: ");
+    printf("\n\n\t\t 1. Create a new Record ");
+    printf("\t\t\t\t\t 2. Edit record ");
+    printf("\n\t\t\ 3. Delete a record ");
+    printf("\t\t\t\t\t\t 4. Open a record ");
     printf("\n\t\t 5. Exit");
     printf("\n\t\t Enter your choice: ");
     scanf("%d",&choice);
@@ -403,14 +404,17 @@ void openDatabase(){
 int main() {
     while(1){
         int choice;
-        printf("####### Welcome ######\n");
-        printf("What program are you looking for:\n");
-        printf("1. Word\n");
-        printf("2. Excel\n");
-        printf("3. Database\n");
-        printf("4. Exit\n");
-        printf("Enter your choice: ");
+        system("color 0F");
+        printf("\n\t\t\t\t\t\WELCOME");
+        printf("\n\t\t ____________________________________________________\n");
+        printf("\n\t\t What program are you looking for?");
+        printf("\n\n\t\t 1. Word");
+        printf("\t\t\t\t 2. Excel");
+        printf("\n\n\t\t 3. Database");
+        printf("\t\t\t\t 4. Exit");
+        printf("\n\n\t\t Enter your choice: ");
         scanf("%d",&choice);
+
         switch(choice){
             case 1:
                 openWord();
@@ -426,7 +430,9 @@ int main() {
                 break;
             default:
                 system("cls");
-                printf("########Select Another Option########\n");
+                printf("\t\t\t\tERROR!!!");
+                printf("\n\t\t\t\tSelect Another Option\n");
+
         }
     }
 }
