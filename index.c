@@ -393,6 +393,8 @@ void openExcel(){
     printf("\n\t\t\ 3. Delete a record ");
     printf("\t\t\t\t\t\t 4. Open a record ");
     printf("\n\t\t 5. Exit");
+    printf("\t\t\t\t\t\t 6. Go Back ");
+
     printf("\n\t\t Enter your choice: ");
     scanf("%d",&choice);
     switch(choice){
@@ -407,6 +409,12 @@ void openExcel(){
         break;
     case 4:
         openRecord();
+        break;
+    case 5:
+        exit(1);
+        break;
+    case 6:
+        main();
         break;
     }
 
@@ -448,12 +456,13 @@ void trySelect(char query[100]){
             count2++;
     }
     int a=0,val=0;
-
     for(a=0;a<length;a++){
         if(strcmp(excelList[a].file_name,temp)==1){
             val=a;
+            break;
         }
     }
+
     getchar();
     length=0;
     int count=0;
