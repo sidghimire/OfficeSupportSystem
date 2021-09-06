@@ -95,15 +95,15 @@ void editAWordDocument(){
     system("cls");
     choice--;
     char submit;
-    printf("\t\t\t\t\tEdit Document\n");
-    printf("\n\t\t Original Name:%s\n",wordList[choice].file_name);
-    printf("\n\t\t Edit Your Document Name: ");
+    printf("\n\n\t\t\t\t\t\t\tEdit Document\n");
+    printf("\n\n\t\t\t\t Original Name:%s\n",wordList[choice].file_name);
+    printf("\n\n\t\t\t\t Edit Your Document Name: ");
 
     getchar();
     gets(wordList[choice].file_name);
-    printf("\n\t\t Edit The Content Of Your Document:");
+    printf("\n\t\t\t\t Edit The Content Of Your Document:");
     gets(wordList[choice].file_content);
-    printf("\n\t\t Enter Y/y to Submit: ");
+    printf("\n\n\t\t\t\t Enter Y/y to Submit: ");
     scanf("%s",&submit);
     if(submit=='Y' || submit=='y'){
         system("cls");
@@ -249,7 +249,7 @@ void createNewRecord(){
     scanf("%s",&submit);
     if(submit=='Y' || submit=='y'){
         system("cls");
-        printf("\n\t\t\t\t\t\Word File Was SuccessFully Saved\n");
+        printf("\n\t\t\t\t\t\Excel File Was SuccessFully Saved\n");
         printf("\n\t\t\t\t\t\Press Any Key to Continue");
         getch();
         system("cls");
@@ -257,7 +257,7 @@ void createNewRecord(){
         openExcel();
     }else{
         system("cls");
-        printf("\n\t\t\t\t\t\Word File Was Not Saved\n");
+        printf("\n\t\t\t\t\t\Excel File Was Not Saved\n");
         printf("\n\t\t\t\t\t\Press Any Key to Continue");
         getch();
         system("cls");
