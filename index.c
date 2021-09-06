@@ -366,14 +366,14 @@ void editRecord(){
     scanf("%s",&submit);
     if(submit=='Y' || submit=='y'){
         system("cls");
-        printf("\t\t\t\t\tWord File Was SuccessFully Saved\n");
+        printf("\t\t\t\t\tExcel File Was SuccessFully Saved\n");
         printf("\t\t\t\t\tPress Any Key to Continue");
         getch();
         system("cls");
         openExcel();
     }else{
         system("cls");
-        printf("\t\t\t\t\tWord File Was Not Saved\n");
+        printf("\t\t\t\t\tExcel File Was Not Saved\n");
         printf("\t\t\t\t\tPress Any Key to Continue");
         getch();
         system("cls");
