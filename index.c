@@ -426,7 +426,6 @@ void openExcel(){
 
 void getOperationQuery(char query[100]){
     int count=0;
-
     for(int i=0;i<strlen(query);i++){
             if(query[i]==32){
                 for(int j=0;j<i;j++){
@@ -465,7 +464,6 @@ void trySelect(char query[100]){
         }
     }
 
-    getchar();
     length=0;
     int count=0;
     int x=0;
@@ -477,7 +475,6 @@ void trySelect(char query[100]){
             count++;
             x++;
     }
-    getchar();
     system("cls");
     printf("Document Name: %s \n",excelList[val].file_name);
     for(int i=0;i<length;i++){
@@ -558,8 +555,6 @@ void  writeQuery(){
     }else{
         getOperationQuery(query);
         strcpy(currentOperation,strupr(currentOperation));
-        printf("%s",currentOperation);
-
         if((strcmp(currentOperation,selectQ))==0){
             trySelect(query);
         }else if((strcmp(currentOperation,deleteQ))==0){
@@ -569,7 +564,6 @@ void  writeQuery(){
 
 
     }
-    getchar();
     system("cls");
 }
 
