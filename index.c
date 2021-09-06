@@ -436,8 +436,9 @@ void getOperationQuery(char query[100]){
     }
 }
 
+
 void trySelect(char query[100]){
-    char temp[30];
+    char temp[7];
         for(int j=7;j<=strlen(query);j++){
             if(query[j]=='\0' || query[j]==32){
                 int count=0;
@@ -460,10 +461,11 @@ void trySelect(char query[100]){
     for(a=0;a<length;a++){
         if(strcmp(excelList[a].file_name,temp)==1){
             val=a;
-            break;
+            goto aa;
         }
     }
-
+    aa:
+    getchar();
     length=0;
     int count=0;
     int x=0;
