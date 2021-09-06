@@ -411,9 +411,11 @@ void openExcel(){
         openRecord();
         break;
     case 5:
+        system("cls");
         exit(1);
         break;
     case 6:
+        system("cls");
         main();
         break;
     }
@@ -543,14 +545,13 @@ void tryDelete(char query[100]){
 void  writeQuery(){
     char operation[50];
     char selectQ[7]={"SELECT"};
-    char insertQ[7]={"INSERT"};
-    char createQ[7]={"CREATE"};
     char deleteQ[7]={"DELETE"};
 
     system("cls");
     char query[100];
-    printf("Enter Your Query: ");
+    printf("\n\n\n\t\t\tEnter Your Query: \n");
     getchar();
+    printf("\n\t\t\t");
     gets(query);
     if(strlen(query)==0){
         printf("Invalid Query");
@@ -575,13 +576,15 @@ void  writeQuery(){
 
 void openDatabase(){
     system("cls");
-    system("color 0A");
+    system("color 00");
     printf("\n\n\t\t\t\t\t\t\t Database Program \n");
     printf("\n\t\t\t\t\t_____________________________________________");
     int choice;
     printf("\n\n\t\t 1. Write a Query: ");
-    printf("\n\t\t 2. Exit");
-    printf("\n\t\t Enter your choice: ");
+    printf("\n\n\t\t 2. Exit");
+    printf("\n\n\t\t 3. Go Back");
+
+    printf("\n\n\t\t Enter your choice: ");
     scanf("%d",&choice);
     switch(choice){
     case 1:
@@ -589,6 +592,10 @@ void openDatabase(){
         break;
     case 2:
         exit(1);
+        break;
+    case 3:
+        system("cls");
+        main();
         break;
     }
 
