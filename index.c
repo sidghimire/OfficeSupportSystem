@@ -249,7 +249,7 @@ void createNewRecord(){
     scanf("%s",&submit);
     if(submit=='Y' || submit=='y'){
         system("cls");
-        printf("\n\t\t\t\t\t\Excel File Was SuccessFully Saved\n");
+        printf("\n\t\t\t\t\tExcel File Was SuccessFully Saved\n");
         printf("\n\t\t\t\t\t\Press Any Key to Continue");
         getch();
         system("cls");
@@ -257,7 +257,7 @@ void createNewRecord(){
         openExcel();
     }else{
         system("cls");
-        printf("\n\t\t\t\t\t\Excel File Was Not Saved\n");
+        printf("\n\t\t\t\t\tExcel File Was Not Saved\n");
         printf("\n\t\t\t\t\t\Press Any Key to Continue");
         getch();
         system("cls");
