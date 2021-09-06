@@ -219,7 +219,7 @@ void openWord(){
 //Just For Excel START
 void showListOfExcel(){
     for(int i=0;i<counterForExcel;i++){
-        printf("\t\t %d. %s\n",i+1,excelList[i].file_name);
+        printf("%d. %s\n\t\t",i+1,excelList[i].file_name);
     }
 
 }
@@ -635,11 +635,4 @@ int main() {
     }
 }
 // Main Of Program ##End##
-
-
-//Alignment
-//Spacing
-//UpperCase Lower Case
-//Bullets -- *
-// Custom function use garne ani while(true){ use # to type, similarly more)
 
