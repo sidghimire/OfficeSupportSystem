@@ -219,7 +219,7 @@ void openWord(){
 //Just For Excel START
 void showListOfExcel(){
     for(int i=0;i<counterForExcel;i++){
-        printf("%d. %s\n",i+1,excelList[i].file_name);
+        printf("\t\t %d. %s\n",i+1,excelList[i].file_name);
     }
 
 }
