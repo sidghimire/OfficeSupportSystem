@@ -100,9 +100,9 @@ void editAWordDocument(){
     printf("\n\t\t Edit Your Document Name: ");
 
     getchar();
-    fgets(wordList[choice].file_name,50,stdin);
+    gets(wordList[choice].file_name);
     printf("\n\t\t Edit The Content Of Your Document:");
-    fgets(wordList[choice].file_content,2000,stdin);
+    gets(wordList[choice].file_content);
     printf("\n\t\t Enter Y/y to Submit: ");
     scanf("%s",&submit);
     if(submit=='Y' || submit=='y'){
