@@ -385,17 +385,17 @@ void editRecord(){
 void openExcel(){
     system("cls");
     system("color 0B");
-    printf("\n\n\t\t\t\t\t\tExcel Program \n");
+    printf("\n\n\n\n\t\t\t\t\t\tExcel Program \n");
     printf("\t\t\t\t_____________________________________________");
     int choice;
-    printf("\n\n\t\t 1. Create a new Record ");
-    printf("\t\t\t\t\t 2. Edit record ");
-    printf("\n\t\t\ 3. Delete a record ");
-    printf("\t\t\t\t\t\t 4. Open a record ");
-    printf("\n\t\t 5. Exit");
-    printf("\t\t\t\t\t\t 6. Go Back ");
+    printf("\n\n\n\t\t\t 1. Create a new Record ");
+    printf("\t\t 2. Edit record ");
+    printf("\n\n\t\t\t 3. Delete a record ");
+    printf("\t\t\t 4. Open a record ");
+    printf("\n\n\t\t\t 5. Exit");
+    printf("\t\t\t\t 6. Go Back ");
 
-    printf("\n\t\t Enter your choice: ");
+    printf("\n\n\n\t\t Enter your choice: ");
     scanf("%d",&choice);
     switch(choice){
     case 1:
